@@ -16,6 +16,7 @@ import (
 	"unicode/utf8"
 )
 
+// Builder godoc.
 // A Buffer is a variable-sized buffer of bytes with Read and Write methods.
 // The zero value for Buffer is an empty buffer ready to use.
 type Builder struct {
@@ -415,8 +416,11 @@ func NewBuilderString(s string) *Builder {
 
 // The whole reason we needed to copy this file was so we had access to the underlying slice
 
-var ErrInvalidIndex = errors.New("insertablebuffer.Buf: invalid index")
-var ErrFailedToGrow = errors.New("insertablebuffer.Buf: failed to grow buffer enough")
+// Known exported errors for insertablebuffer.
+var (
+	ErrInvalidIndex = errors.New("insertablebuffer.Buf: invalid index")
+	ErrFailedToGrow = errors.New("insertablebuffer.Buf: failed to grow buffer enough")
+)
 
 // Insert inserts the buffer at the desired position, growing the buffer
 // as necessary. If i is less than zero, or greater than len(p), an error
@@ -465,11 +469,13 @@ func (b *Builder) ByteAt(i int) (byte, error) {
 	return b.buf[i], nil
 }
 
+// ResetWith resets the buffer and then writes `buf`.
 func (b *Builder) ResetWith(buf []byte) (n int, err error) {
 	b.Truncate(0)
 	return b.Write(buf)
 }
 
+// ResetWithString resets the buffer and then writes `s`.
 func (b *Builder) ResetWithString(s string) (n int, err error) {
 	b.Truncate(0)
 	return b.WriteString(s)
