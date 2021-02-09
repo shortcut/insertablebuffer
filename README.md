@@ -1,7 +1,7 @@
 insertablebuffer
 ================
 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/bendiknesbo/builder)](https://pkg.go.dev/github.com/bendiknesbo/builder)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/shortcut/insertablebuffer)](https://pkg.go.dev/github.com/shortcut/insertablebuffer)
 
 This is a fork of https://github.com/ttacon/builder
 
